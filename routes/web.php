@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,12 @@ Route::post('/update/{id}',[ProductController::class,'update']
 
 )->name('update');
 //Route::resource('/product', ProductController::class);
+
+Route::get('/createCategory',[CategoryController::class,'create']
+
+)->name('createcategory');
+
+
+Route::post('/addcategory',[CategoryController::class,'store']
+
+)->name('ajoutcat');

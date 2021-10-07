@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
     protected $fillable = [
-        'name', 'description','price','stock'
+        'name', 'description','price','stock','category_id'
     ];
 }

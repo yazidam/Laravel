@@ -21,6 +21,8 @@ class CreateProductsTable extends Migration
             $table->float("stock");
 
             $table->timestamps();
+
+            $table->foreignId('category_id')->constrained();
         });
     }
 
