@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string("description");
             $table->float("price");
             $table->float("stock");
-            $table->String("_token");
+
             $table->timestamps();
         });
     }
