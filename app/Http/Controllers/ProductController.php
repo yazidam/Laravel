@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Catalogue;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -29,9 +30,9 @@ class ProductController extends Controller
     {
         //
         $p=Category::all();
+        $c=Catalogue::all();
 
-
-        return view("product.add",compact('p'));
+        return view("product.add",compact('p'),compact('c'));
     }
 
     /**
@@ -43,7 +44,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        Product::create([
+       $product= Product::create([
             'name'=> $request->name,
             'description'=> $request->description,
             'price'=> $request->price,
@@ -51,6 +52,7 @@ class ProductController extends Controller
             'category_id'=>$request->category_id
 
         ]) ;
+       $product->catalogues()->attach($request->cats);
         return redirect()->route('product');
     }
 

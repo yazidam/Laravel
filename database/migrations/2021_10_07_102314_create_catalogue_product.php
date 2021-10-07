@@ -16,7 +16,7 @@ class CreateCatalogueProduct extends Migration
         Schema::create('catalogue_product', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('catalogue_id');
             $table->unsignedBigInteger('product_id');
         });
     }

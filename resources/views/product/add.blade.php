@@ -13,5 +13,14 @@
             </option>
         @endforeach
     </select>
+
+    <select name="cats[]" multiple>
+
+        @foreach ($c as $catalogue)
+            <option value="{{ $item->id }}"  {{in_array($catalogue->id,old('cats') ? : []) ? 'selected' : ''}}>{{ $item->name }}
+            </option>
+        @endforeach
+    </select>
+
     <input type="submit" value="valider">
 </form>
