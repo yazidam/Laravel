@@ -47,7 +47,8 @@ class ProductController extends Controller
             'name'=> $request->name,
             'description'=> $request->description,
             'price'=> $request->price,
-            'stock'=> $request->stock
+            'stock'=> $request->stock,
+            'category_id'=>$request->category_id
 
         ]) ;
         return redirect()->route('product');
