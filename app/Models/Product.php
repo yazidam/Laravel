@@ -12,6 +12,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function catalogues()
+    {
+        return $this->belongsToMany(Catalogue::class);
+    }
     protected $fillable = [
         'name', 'description','price','stock','category_id'
     ];
