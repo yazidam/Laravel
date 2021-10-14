@@ -6,6 +6,7 @@ use App\Models\Catalogue;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+//use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -44,8 +45,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-       $product= Product::create([
-            'name'=> $request->name,
+        $product= Product::create([
+           // $validated = $request->validated(),
+$request->validate([
+   'name'=>'required',
+    'description'=>'required',
+    'price'=>'required',
+    'stock'=>'required',
+]),
+        'name'=> $request->name,
             'description'=> $request->description,
             'price'=> $request->price,
             'stock'=> $request->stock,
